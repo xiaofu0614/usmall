@@ -3,7 +3,7 @@
     <div class="con">
       <h2>登录</h2>
       <div><input type="text" v-model="user.username"></div>
-      <div><input type="text" v-model="user.password"></div>
+      <div><input type="password" v-model="user.password"></div>
       <div><button @click="login">登录</button></div>
     </div>
   </div>
