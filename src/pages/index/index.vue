@@ -43,7 +43,9 @@
       </el-aside>
       <el-container>
         <el-header>
-          <div class="headerTop"><el-button type="danger" @click="tuichu">退出</el-button></div>
+          <div class="headerTop ">
+            <i class="el-icon-s-tools" @click="tuichu"></i>
+          </div>
           <div class="headerTop">{{list.username}} </div>
         </el-header>
         <el-main>
@@ -75,8 +77,11 @@ export default {
       requestuserList:'user/requestuserList'
     }),
     tuichu(){
-      this.requestuserList({})
+      var a = confirm('是否退出')
+      if(a){
+        this.requestuserList({})
       this.$router.push('/login')
+      }
     }
   },
   mounted() {},
