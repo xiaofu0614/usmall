@@ -137,11 +137,11 @@ export const requserCount = () => {
   });
 };
 // 管理员登录
-export const requserLogin = (data) => {
+export const requserLogin = data => {
   return axios({
     url: base + "/api/userlogin",
     method: "post",
-    data:data
+    data: data
   });
 };
 /////////////////////////////////商品分类/////////////////////////////////////////
@@ -218,7 +218,7 @@ export const reqspescOne = id => {
     params: id
   });
 };
-// 商品规格修改 
+// 商品规格修改
 export const reqspescEdit = data => {
   return axios({
     url: base + "/api/specsedit",
@@ -230,6 +230,55 @@ export const reqspescEdit = data => {
 export const reqspescDel = id => {
   return axios({
     url: base + "/api/specsdelete",
+    method: "post",
+    data: id
+  });
+};
+/////////////////////////////////商品管理/////////////////////////////////////////
+// 商品添加
+export const reqgoodsAdd = data => {
+  var form = new FormData();
+  for (var i in data) {
+    form.append(i, data[i]);
+  }
+  return axios({
+    url: base + "/api/goodsadd",
+    method: "post",
+    data: form
+  });
+};
+// 商品列表
+export const reqgoodsList = data => {
+  return axios({
+    url: base + "/api/goodslist",
+    method: "get",
+    params: data
+  });
+};
+//获取商品一条数据
+export const reqgoodsOne = id => {
+  return axios({
+    url: base + "/api/goodsinfo",
+    method: "get",
+    params: id
+  });
+};
+//商品编辑
+export const reqgoodsEdit = data => {
+    var form = new FormData();
+    for (var i in data) {
+      form.append(i, data[i]);
+    }
+  return axios({
+    url: base + "/api/goodsedit",
+    method: "post",
+    data: form
+  });
+};
+// 商品删除
+export const reqgoodsDel = id => {
+  return axios({
+    url: base + "/api/goodsdelete",
     method: "post",
     data: id
   });
